@@ -1,0 +1,121 @@
+
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Big Data</title>
+    <link rel="shortcut icon" type="image/png" href="./data/favicon.jpeg"/>
+
+    <!----------------- My  dependencies ----------------->
+    <script>
+      let workInLocal = false;
+      let host;
+
+      if (workInLocal) {
+          host = 'http://localhost';
+      } else {
+          host = 'https://borreani.fr';
+      }
+
+      const components = [
+          'bt_composant_main_block',
+          'bt_composant_dropdown_icon',
+          'bt_composant_dropdown_text',
+          'bt_composant_icon',
+          'bt_composant_drag_and_drop',
+          'bt_composant_button',
+          'bt_composant_container',
+          'bt_composant_code_presentation',
+          'bt_composant_input',
+          'bt_composant_card',
+          'bt_composant_chart'
+      ];
+  
+      components.forEach(component => {
+          const script = document.createElement('script');
+          script.type = 'module';
+          script.src = `${host}/bt_web_components/v1.1/${component}/app.js`;
+          document.head.appendChild(script);
+      });
+  </script>
+
+    
+    <!-- Under is all pages -->
+    <script type="module" src="./html-snippets/page/page_presentation/app.js"></script>
+    <script type="module" src="./html-snippets/page/page_analyse_benchmark/app.js"></script>
+    <script type="module" src="./html-snippets/page/page_benchmarking/app.js"></script>
+    <script type="module" src="./html-snippets/page/page_interface_api/app.js"></script>
+
+    <!-----------------  Extern dependencies  ----------------->
+
+    <!-- It's for make a chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-----------------  My CSS générale ----------------->
+    <link rel="stylesheet" href="styles.css"> 
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!--
+      /**
+      * ! aaa 
+      */
+    -->
+
+    </head>
+      <body>
+        <bt-mainblock
+          jsonObjetString='
+            {
+              "logo":{
+                "link":"./data/logo.png"
+              },
+              "mainRoute": {
+                "label":"Présentation du projet",
+                "route":"&lt;page-presentation&gt;&lt;/page-presentation&gt;",
+                "typeRoute":"html"
+              },
+              "routes": [
+                {
+                  "label":"Présentation du projet",
+                  "route":"&lt;page-presentation&gt;&lt;/page-presentation&gt;",
+                  "typeRoute":"html",
+                  "type":"standardImage",
+                  "children": []
+                },
+                {
+                  "label":"Interface API",
+                  "route":"&lt;page-interface-api&gt;&lt;/page-interface-api&gt;",
+                  "typeRoute":"html",
+                  "children": []
+                },
+                {  
+                  "label":"Benchmarking",
+                  "route":"&lt;page-benchmarking&gt;&lt;/page-benchmarking&gt;",
+                  "typeRoute":"html",
+                  "children": []
+                },
+                {  
+                  "label":"Analyse Benchmarking",
+                  "route":"&lt;page-analyse-benchmark&gt;&lt;/page-analyse-benchmark&gt;",
+                  "typeRoute":"html",
+                  "children": []
+                }
+              ],
+              "footer": [
+                {
+                  "label":"© 2024 - Tous droits réservés",
+                  "route":"./html-snippets/page_mentions_legales.html",
+                  "typeRoute":"http"                
+                }
+              ] 
+            }
+      '
+    >
+    </bt-mainblock> 
+
+  </body>
+</html>
